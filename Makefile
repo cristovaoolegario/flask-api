@@ -1,5 +1,13 @@
+DIR = $(shell pwd)
+
 build-image:
 	docker build -t rest-apis-flask-python .
 
 container:
-	docker run -d -p 5000:5000 rest-apis-flask-python
+	docker run --name flask-api -d -p 5000:5000 -w /app -v "$(DIR):/app" rest-apis-flask-python
+
+container-stop:
+	docker stop flask-api
+
+run:
+	flask run --host 0.0.0.0
