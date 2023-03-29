@@ -34,6 +34,14 @@ def create_store():
 
     return store
 
+@app.delete("/store/<string:store_id>")
+def delete_store(store_id):
+    try:
+        del stores[store_id]
+        return {"message": "Store deleted."}
+    except KeyError:
+        abort(404, message="Store not found.")
+
 @app.post("/item")
 def create_item():
     item_data = request.get_json()
