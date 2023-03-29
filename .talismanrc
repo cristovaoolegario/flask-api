@@ -1,0 +1,4 @@
+fileignoreconfig:
+- filename: .flaskenv
+  checksum: f2f1e525a3010dab0536fc8f901bd5864ac77fc95589c44b2987fb6ce30be1fc
+version: "1.0"
