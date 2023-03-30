@@ -1,5 +1,8 @@
 DIR = $(shell pwd)
 
+install-deps:
+	pip install -r requirements.txt
+
 build-image:
 	docker build -t rest-apis-flask-python .
 
