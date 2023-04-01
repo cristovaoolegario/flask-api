@@ -3,4 +3,6 @@ fileignoreconfig:
   checksum: f2f1e525a3010dab0536fc8f901bd5864ac77fc95589c44b2987fb6ce30be1fc
 - filename: models/item.py
   checksum: 0b7cef99571df424f914033895893120a2b4a4d1f61d2b8b2361f95591085f91
+- filename: models/tag.py
+  checksum: c0ef027d179cd40d907bb0d28338acc38cd697f6d2a6c8e731cd685b84ccc729
 version: "1.0"
