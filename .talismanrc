@@ -5,4 +5,8 @@ fileignoreconfig:
   checksum: 0b7cef99571df424f914033895893120a2b4a4d1f61d2b8b2361f95591085f91
 - filename: models/tag.py
   checksum: c0ef027d179cd40d907bb0d28338acc38cd697f6d2a6c8e731cd685b84ccc729
+- filename: models/user.py
+  checksum: f0ed50b11594e01efe3727b4e462cf3f64a4319e3b73e44c383cb8f61b98d093
+- filename: schemas.py
+  checksum: 239e306b5071834f6b2171f4eafaafef9492e4420c23be2b383f55a87244cc09
 version: "1.0"
