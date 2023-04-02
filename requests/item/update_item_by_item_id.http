@@ -1,0 +1,7 @@
+PUT http://localhost:5000/item/1 HTTP/1.1
+content-type: application/json
+
+{
+  "name": "First item",
+  "price": 150000.0
+}

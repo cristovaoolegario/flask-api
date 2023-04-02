@@ -1,0 +1,8 @@
+POST http://localhost:5000/item HTTP/1.1
+content-type: application/json
+
+{
+  "name": "First item",
+  "price": 15000.0,
+  "store_id":1
+}

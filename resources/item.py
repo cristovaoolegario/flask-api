@@ -33,9 +33,12 @@ class Item(MethodView):
         else:
             item = ItemModel(id=item_id, **item_data)
 
-        db.session.add(item)
-        db.session.commit()
-
+        try:
+             db.session.add(item)
+             db.session.commit()
+        except SQLAlchemyError:
+            abort(500, message="An error occurred while inserting the item.")
+            
         return item
 
 @blp.route("/item")
