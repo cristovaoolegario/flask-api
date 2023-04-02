@@ -10,7 +10,10 @@ container:
 	docker run --name flask-api -d -p 5000:5000 -w /app -v "$(DIR):/app" rest-apis-flask-python
 
 container-stop:
-	docker stop flask-api
+	docker stop flask-api && docker rm flask-api
 
 run:
 	flask run --host 0.0.0.0
+
+open:
+	open http://localhost:5000/swagger-ui
