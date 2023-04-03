@@ -32,13 +32,17 @@ def create_app(db_url=None):
     app.config["JWT_SECRET_KEY"] = "jose"
     jwt = JWTManager(app)
 
+    @jwt.additional_claims_loader
+    def add_claims_to_jwt(identity):
+        return {"is_admin": True} if identity == 1 else {"is_admin": False}
+
     @jwt.expired_token_loader
     def expired_token_callback(jwt_header, jwt_payload):
         return (
             jsonify({"message": "The token has expired.", "error": "token_expired"}),
             401,
         )
-    
+
     @jwt.invalid_token_loader
     def invalid_token_callback(error):
         return (
@@ -47,7 +51,7 @@ def create_app(db_url=None):
             ),
             401,
         )
-    
+
     @jwt.unauthorized_loader
     def missing_token_callback(error):
         return (
@@ -59,7 +63,7 @@ def create_app(db_url=None):
             ),
             401,
         )
-    
+
     with app.app_context():
         db.create_all()
 
