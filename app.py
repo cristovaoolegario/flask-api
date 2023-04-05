@@ -1,6 +1,7 @@
 from flask import Flask, jsonify
 from flask_smorest import Api
 from flask_jwt_extended import JWTManager
+from blocklist import BLOCKLIST
 
 from db import db
 
@@ -22,6 +23,19 @@ def create_app(db_url=None):
     app.config[
         "OPENAPI_SWAGGER_UI_URL"
     ] = "https://cdn.jsdelivr.net/npm/swagger-ui-dist/"
+    app.config["API_SPEC_OPTIONS"] = {
+        "components": {
+            "securitySchemes": {
+                "Bearer Auth": {
+                    "type": "apiKey",
+                    "in": "header",
+                    "name": "Authorization",
+                    "bearerFormat": "JWT",
+                    "description": "Enter: **'Bearer &lt;JWT&gt;'**, where JWT is the access token",
+                }
+            }
+        },
+    }
     app.config["SQLALCHEMY_DATABASE_URI"] = db_url or "sqlite:///data.db"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["PROPAGATE_EXCEPTIONS"] = True
@@ -64,6 +78,15 @@ def create_app(db_url=None):
             401,
         )
 
+    @jwt.token_in_blocklist_loader
+    def check_if_token_in_blocklist(jwt_header, jwt_payload):
+        return jwt_payload["jti"] in BLOCKLIST
+
+
+    @jwt.revoked_token_loader
+    def revoked_token_callback(jwt_header, jwt_payload):
+        return (jsonify({"description": "The token has been revoked.", "error": "token_revoked"}), 401,)
+    
     with app.app_context():
         db.create_all()
 
@@ -71,5 +94,5 @@ def create_app(db_url=None):
     api.register_blueprint(ItemBlueprint)
     api.register_blueprint(StoreBlueprint)
     api.register_blueprint(TagBlueprint)
-
+    
     return app

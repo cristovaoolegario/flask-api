@@ -1,10 +1,11 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
-from flask_jwt_extended import jwt_required, get_jwt
+from flask_jwt_extended import get_jwt
 
 from sqlalchemy.exc import SQLAlchemyError
 
 from db import db
+from decorator import jwt_required_with_doc
 from models import ItemModel
 from schemas import ItemSchema, ItemUpdateSchema
 
@@ -12,12 +13,12 @@ blp = Blueprint("Items", "items", description="Operations on items")
 
 @blp.route("/item/<string:item_id>")
 class Item(MethodView):
-    @jwt_required()
+    @jwt_required_with_doc()
     @blp.response(200, ItemSchema)
     def get(self, item_id):
         return ItemModel.query.get_or_404(item_id)
 
-    @jwt_required()
+    @jwt_required_with_doc()
     def delete(self, item_id):
         jwt = get_jwt()
         if not jwt.get("is_admin"):
@@ -28,7 +29,7 @@ class Item(MethodView):
         db.session.commit()
         return {"message": "Item deleted."}
 
-    @jwt_required()
+    @jwt_required_with_doc()
     @blp.arguments(ItemUpdateSchema)
     @blp.response(200, ItemSchema)
     def put(self, item_data, item_id):
@@ -49,12 +50,12 @@ class Item(MethodView):
 
 @blp.route("/item")
 class ItemList(MethodView):
-    @jwt_required()
+    @jwt_required_with_doc()
     @blp.response(200, ItemSchema(many=True))
     def get(self):
         return ItemModel.query.all()
 
-    @jwt_required()
+    @jwt_required_with_doc()
     @blp.response(201, ItemSchema)
     @blp.arguments(ItemSchema)
     def post(self, item_data):
