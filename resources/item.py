@@ -29,7 +29,7 @@ class Item(MethodView):
         db.session.commit()
         return {"message": "Item deleted."}
 
-    @jwt_required_with_doc()
+    @jwt_required_with_doc(fresh=True)
     @blp.arguments(ItemUpdateSchema)
     @blp.response(200, ItemSchema)
     def put(self, item_data, item_id):
@@ -55,7 +55,7 @@ class ItemList(MethodView):
     def get(self):
         return ItemModel.query.all()
 
-    @jwt_required_with_doc()
+    @jwt_required_with_doc(fresh=True)
     @blp.response(201, ItemSchema)
     @blp.arguments(ItemSchema)
     def post(self, item_data):

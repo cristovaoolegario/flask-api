@@ -8,7 +8,7 @@ fileignoreconfig:
 - filename: models/user.py
   checksum: f0ed50b11594e01efe3727b4e462cf3f64a4319e3b73e44c383cb8f61b98d093
 - filename: resources/user.py
-  checksum: 7d87a4221352f023520bb4bc1e5eb5911e11bfcf38c30068e4566a5086589643
+  checksum: 743d346e54aa862626315feea01417aefdd2c88f1863e8a3a5235e400bd626f1
 - filename: schemas.py
   checksum: 239e306b5071834f6b2171f4eafaafef9492e4420c23be2b383f55a87244cc09
 version: "1.0"
