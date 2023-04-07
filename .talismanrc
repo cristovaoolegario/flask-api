@@ -1,6 +1,10 @@
 fileignoreconfig:
 - filename: .flaskenv
   checksum: f2f1e525a3010dab0536fc8f901bd5864ac77fc95589c44b2987fb6ce30be1fc
+- filename: migrations/alembic.ini
+  checksum: 9ade5e33abdb1ddfc5ff26f92db5c301b815af9ed8e6bf4940e6a25c3412b315
+- filename: migrations/env.py
+  checksum: 3c45e4d5570f92a0310fd7cbad52835a3166d1e58d8e6d79d422a8d22def5e39
 - filename: models/item.py
   checksum: 0b7cef99571df424f914033895893120a2b4a4d1f61d2b8b2361f95591085f91
 - filename: models/tag.py

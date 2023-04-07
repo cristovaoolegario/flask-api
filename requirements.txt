@@ -2,6 +2,7 @@ flask
 flask-smorest
 python-dotenv
 sqlalchemy
+flask-migrate
 flask-sqlalchemy
 flask-jwt-extended
 passlib

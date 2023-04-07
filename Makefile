@@ -17,3 +17,12 @@ run:
 
 open:
 	open http://localhost:5000/swagger-ui
+
+init-db:
+	flask db init
+
+migrate-db:
+	flask db migrate
+
+upgrade-db:
+	flask db upgrade
