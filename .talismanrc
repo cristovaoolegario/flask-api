@@ -1,4 +1,6 @@
 fileignoreconfig:
+- filename: .env.example
+  checksum: c194e45f4c3e1209647613f8d55916cd67f60021be38cc5402cf0d3ad30c786d
 - filename: .flaskenv
   checksum: f2f1e525a3010dab0536fc8f901bd5864ac77fc95589c44b2987fb6ce30be1fc
 - filename: migrations/alembic.ini
