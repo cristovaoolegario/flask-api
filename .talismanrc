@@ -6,13 +6,15 @@ fileignoreconfig:
 - filename: migrations/alembic.ini
   checksum: 9ade5e33abdb1ddfc5ff26f92db5c301b815af9ed8e6bf4940e6a25c3412b315
 - filename: migrations/env.py
-  checksum: 3c45e4d5570f92a0310fd7cbad52835a3166d1e58d8e6d79d422a8d22def5e39
+  checksum: 77e7d23925cbbce6304144bef3987b329c9ef0b91dfb8fe053c0340c6df20f23
+- filename: migrations/versions/4bf447ff4866_.py
+  checksum: cf5798d83d9b62532bf4edf14a293890ca7e62e8b069ac289040abcd77f7c083
 - filename: models/item.py
   checksum: 0b7cef99571df424f914033895893120a2b4a4d1f61d2b8b2361f95591085f91
 - filename: models/tag.py
-  checksum: c0ef027d179cd40d907bb0d28338acc38cd697f6d2a6c8e731cd685b84ccc729
+  checksum: 08ac7ac3da3337e71c440c6ef10a5944d27070f0de6ef67962efe72332bcd58d
 - filename: models/user.py
-  checksum: f0ed50b11594e01efe3727b4e462cf3f64a4319e3b73e44c383cb8f61b98d093
+  checksum: c33d08e2e3865b18fcb49043f6f4a8eb7c0bbd8fd636d06d4d513332ca357e52
 - filename: resources/user.py
   checksum: 743d346e54aa862626315feea01417aefdd2c88f1863e8a3a5235e400bd626f1
 - filename: schemas.py
