@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: c194e45f4c3e1209647613f8d55916cd67f60021be38cc5402cf0d3ad30c786d
 - filename: .flaskenv
   checksum: f2f1e525a3010dab0536fc8f901bd5864ac77fc95589c44b2987fb6ce30be1fc
+- filename: docker-compose.yaml
+  checksum: f25ca950f4b65c47128cf204fa291684f2414f6d76e1e8d9f3dcf4db2f5bf39a
 - filename: migrations/alembic.ini
   checksum: 9ade5e33abdb1ddfc5ff26f92db5c301b815af9ed8e6bf4940e6a25c3412b315
 - filename: migrations/env.py
